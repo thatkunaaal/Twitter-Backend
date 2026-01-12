@@ -29,8 +29,14 @@ class CrudRepository {
   }
 
   async delete(data) {
-    const respone = await this.model.delete(data);
-    return respone;
+    const response = await this.model.deleteMany(data);
+
+    console.log(response);
+    if (response.deletedCount == 0) {
+      throw new Error("No records find to delete");
+    }
+
+    return response;
   }
 }
 

@@ -1,3 +1,1 @@
-import { createHashtag } from "./hashtag-controller.js";
-
-export { createHashtag };
+export { createHashtag, deleteHashtag } from "./hashtag-controller.js";

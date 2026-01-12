@@ -1,3 +1,1 @@
-import { HashtagRepository } from "./hashtag-repository.js";
-
-export { HashtagRepository };
+export { HashtagRepository } from "./hashtag-repository.js";

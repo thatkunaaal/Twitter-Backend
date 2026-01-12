@@ -1,4 +1,7 @@
-import { createHashtag as createHashtagService } from "../services/index.js";
+import {
+  createHashtag as createHashtagService,
+  deleteHashtag as deleteHashtagService,
+} from "../services/index.js";
 import { StatusCodes } from "http-status-codes";
 import { SuccessResponse, ErrorResponse } from "../utils/common/index.js";
 
@@ -21,4 +24,21 @@ async function createHashtag(req, res) {
   }
 }
 
-export { createHashtag };
+async function deleteHashtag(req, res) {
+  try {
+    const hashtags = await deleteHashtagService({
+      _id: req.body.id,
+    });
+
+    SuccessResponse.data = hashtags;
+
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    console.log(error);
+    ErrorResponse.error = error.message;
+
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(ErrorResponse);
+  }
+}
+
+export { createHashtag, deleteHashtag };

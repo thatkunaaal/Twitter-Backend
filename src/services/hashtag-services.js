@@ -10,4 +10,13 @@ async function createHashtag(data) {
   }
 }
 
-export { createHashtag };
+async function deleteHashtag(data) {
+  try {
+    const hashtag = await hashRepo.delete(data);
+    return hashtag;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export { createHashtag, deleteHashtag };

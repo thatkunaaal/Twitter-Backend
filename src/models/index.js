@@ -1,4 +1,2 @@
-import { Tweet } from "./tweets.js";
-import { Hashtags } from "./hashtags.js";
-
-export { Tweet, Hashtags };
+export { Tweet } from "./tweets.js";
+export { Hashtags } from "./hashtags.js";
